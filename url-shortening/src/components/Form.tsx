@@ -19,7 +19,7 @@ const Form = (props: Props) => {
         />
       </label>
       <input
-        className="bg-[#2acfcf] text-white font-bold w-[17.5rem] h-12 rounded-lg text-lg hover:cursor-pointer"
+        className="bg-[#2acfcf] text-white font-bold w-[17.5rem] h-12 rounded-lg text-lg hover:cursor-pointer hover:opacity-50"
         type="submit"
         value="Shorten It!"
       />
