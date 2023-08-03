@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "./Main.module.css"
 
 import working from "../images/illustration-working.svg";
 import brand from "../images/icon-brand-recognition.svg";
@@ -12,7 +13,7 @@ type Props = {};
 
 const Main = (props: Props) => {
   return (
-    <main className="text-center overflow-hidden">
+    <main className={`text-center overflow-hidden`}>
       <div className="px-4 text-[#35323e]">
         <div className="min-w-[31rem]">
           <img
@@ -92,8 +93,8 @@ const Main = (props: Props) => {
           </div>
         </div>
       </div>
-      <div className="bg-[#3b3054] mt-[-5rem]">
-        <h2>Boost your links today</h2>
+      <div className={`mt-[-5rem] pt-24 pb-[5.5625rem] ${styles["boost"]}`}>
+        <h2 className="text-white font-bold text-[1.675rem]">Boost your links today</h2>
         <StartButton />
       </div>
     </main>
