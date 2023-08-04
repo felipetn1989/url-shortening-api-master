@@ -10,22 +10,42 @@ import StartButton from "../components/StartButton";
 import Form from "../components/Form";
 
 import { ILink } from "../interfaces/ILink";
+import LinkResult from "../components/LinkResult";
 
-type Props = {
-  shortenLink(e: FormEvent<HTMLFormElement>): void;
-  setLink: React.Dispatch<React.SetStateAction<string>>;
-  showError: boolean;
-  shortLink: string;
-  linksArr: ILink[];
-};
+type Props = {};
 
-const Main = ({
-  shortenLink,
-  setLink,
-  showError,
-  shortLink,
-  linksArr,
-}: Props) => {
+const Main = (props: Props) => {
+  const [showError, setShowError] = useState<boolean>(false);
+  const [isValid, setIsValid] = useState<boolean>(true);
+  const [link, setLink] = useState<string>("");
+  const [shortLink, setShortLink] = useState<string>("");
+  const [linksArr, setLinksArr] = useState<ILink[]>([]);
+
+  async function shortenLink(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+
+    setShowError(!link);
+
+    if (!link) return;
+
+    try {
+      const resp = await fetch(`https://api.shrtco.de/v2/shorten?url=${link}`);
+      const data = await resp.json();
+
+      setIsValid(!!data.result);
+
+      const linkResult = await data.result.full_short_link2;
+
+      setShortLink(linkResult);
+
+      if (linksArr.length === 3) linksArr.shift();
+
+      setLinksArr([...linksArr, { link: link, shortLink: linkResult }]);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   return (
     <main className={`text-center overflow-hidden`}>
       <div className="px-4 text-[#35323e]">
@@ -47,23 +67,16 @@ const Main = ({
           <StartButton />
         </div>
       </div>
-      <div className="px-6">
+      <div className="relative px-6 z-40">
         <Form
           shortenLink={shortenLink}
           setLink={setLink}
           showError={showError}
+          isValid={isValid}
         />
       </div>
-      {linksArr?.map((linkObject, index) => (
-        <div key={index} className="grid">
-          <h2>{linkObject?.link}</h2>
-          <a href={`${shortLink}`} target="_blank">
-            {shortLink}
-          </a>
-          <button>Copy</button>
-        </div>
-      ))}
-      <div className="relative bg-[#f0f1f6] -z-10 translate-y-[-5rem] pt-[10.5rem] grid gap-4 px-4 text-[#9e9aa7] pb-20">
+      <div className="bg-[#f0f1f6] translate-y-[-5rem] pt-[9.5625rem] grid gap-4 px-4 text-[#9e9aa7] pb-20">
+        <LinkResult linksArr={linksArr} />
         <h2 className="text-[1.6875rem] font-bold text-[#35323e]">
           Advanced Statistics
         </h2>

@@ -8,9 +8,10 @@ type Props = {
   shortenLink(e: FormEvent<HTMLFormElement>): void;
   setLink: React.Dispatch<React.SetStateAction<string>>;
   showError: boolean;
+  isValid: boolean;
 };
 
-const Form = ({ shortenLink, setLink, showError }: Props) => {
+const Form = ({ shortenLink, setLink, showError, isValid }: Props) => {
   function handleChange(e: ChangeEvent<HTMLInputElement>) {
     setLink(e.target.value);
   }
@@ -18,13 +19,13 @@ const Form = ({ shortenLink, setLink, showError }: Props) => {
   return (
     <div>
       <form
-        className={`${styles.form} mt-[5.5rem] p-6 grid place-content-center gap-4 rounded-lg z-40`}
+        className={`${styles.form} mt-[5.5rem] p-6 grid place-content-center gap-4 rounded-lg`}
         onSubmit={shortenLink}
       >
         <label htmlFor="linkInput">
           <input
             className={`w-[17.5rem] h-12 pl-4 rounded-lg ${
-              showError
+              showError || !isValid
                 ? "placeholder:text-[#f46262] border border-[#f46262]"
                 : "placeholder:text-[#bfbfbf]"
             }`}
@@ -36,8 +37,13 @@ const Form = ({ shortenLink, setLink, showError }: Props) => {
           />
         </label>
         {showError && (
-          <span className="text-left text-[#f46262] text-[0.6875rem]">
+          <span className="text-left text-[#f46262] text-[0.75rem] mt-[-0.75rem]">
             Please add a link
+          </span>
+        )}
+        {!isValid && (
+          <span className="text-left text-[#f46262] text-[0.75rem] mt-[-0.75rem]">
+            Invalid link
           </span>
         )}
         <input
