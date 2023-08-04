@@ -1,33 +1,18 @@
 import React, { ChangeEvent, FormEvent, useState } from "react";
 
 import styles from "./Form.module.css";
-import { spawn } from "child_process";
 
 import { ILink } from "../interfaces/ILink";
 
-type Props = {};
+type Props = {
+  shortenLink(e: FormEvent<HTMLFormElement>): void;
+  setLink: React.Dispatch<React.SetStateAction<string>>;
+  showError: boolean;
+};
 
-const Form = (props: Props) => {
-  const [showError, setShowError] = useState<boolean>(false);
-  const [link, setLink] = useState<string>("");
-  const [linksArr, setLinksArr] = useState<ILink[]>([]);
-
+const Form = ({ shortenLink, setLink, showError }: Props) => {
   function handleChange(e: ChangeEvent<HTMLInputElement>) {
     setLink(e.target.value);
-  }
-
-  function shortenLink(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-
-    setShowError(!link);
-
-    if (!link) return;
-
-    const shortLink = `short test: ${link}`;
-
-    if (linksArr.length === 3) linksArr.shift();
-
-    setLinksArr([...linksArr, { link: link, shortLink: shortLink }]);
   }
 
   return (
@@ -61,13 +46,6 @@ const Form = (props: Props) => {
           value="Shorten It!"
         />
       </form>
-      {linksArr?.map((linkObject, index) => (
-        <div key={index}>
-          <h2>{linkObject?.link}</h2>
-          <p>{linkObject?.shortLink}</p>
-          <button>Copy</button>
-        </div>
-      ))}
     </div>
   );
 };

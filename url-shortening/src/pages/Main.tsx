@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, FormEvent } from "react";
 import styles from "./Main.module.css";
 
 import working from "../images/illustration-working.svg";
@@ -9,9 +9,23 @@ import custom from "../images/icon-fully-customizable.svg";
 import StartButton from "../components/StartButton";
 import Form from "../components/Form";
 
-type Props = {};
+import { ILink } from "../interfaces/ILink";
 
-const Main = (props: Props) => {
+type Props = {
+  shortenLink(e: FormEvent<HTMLFormElement>): void;
+  setLink: React.Dispatch<React.SetStateAction<string>>;
+  showError: boolean;
+  shortLink: string;
+  linksArr: ILink[];
+};
+
+const Main = ({
+  shortenLink,
+  setLink,
+  showError,
+  shortLink,
+  linksArr,
+}: Props) => {
   return (
     <main className={`text-center overflow-hidden`}>
       <div className="px-4 text-[#35323e]">
@@ -34,8 +48,21 @@ const Main = (props: Props) => {
         </div>
       </div>
       <div className="px-6">
-        <Form />
+        <Form
+          shortenLink={shortenLink}
+          setLink={setLink}
+          showError={showError}
+        />
       </div>
+      {linksArr?.map((linkObject, index) => (
+        <div key={index} className="grid">
+          <h2>{linkObject?.link}</h2>
+          <a href={`${shortLink}`} target="_blank">
+            {shortLink}
+          </a>
+          <button>Copy</button>
+        </div>
+      ))}
       <div className="relative bg-[#f0f1f6] -z-10 translate-y-[-5rem] pt-[10.5rem] grid gap-4 px-4 text-[#9e9aa7] pb-20">
         <h2 className="text-[1.6875rem] font-bold text-[#35323e]">
           Advanced Statistics
