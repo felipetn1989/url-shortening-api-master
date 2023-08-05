@@ -48,22 +48,6 @@ const Main = (props: Props) => {
     } catch (err) {
       console.log(err);
     }
-
-    postData();
-  }
-
-  async function postData() {
-    try {
-       fetch("db.json", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(linkObj),
-      });
-    } catch (err) {
-      console.log(err);
-    }
   }
 
   return (

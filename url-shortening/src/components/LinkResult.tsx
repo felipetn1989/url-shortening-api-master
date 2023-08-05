@@ -12,7 +12,7 @@ const LinkResult = ({ linksArr, setLinksArr }: Props) => {
   function copyLink(obj: ILink) {
     setLinksArr(
       linksArr.map((linkObject) =>
-        linkObject.link === obj.link
+        linkObject.shortLink === obj.shortLink
           ? { ...linkObject, copyStatus: true }
           : linkObject
       )
