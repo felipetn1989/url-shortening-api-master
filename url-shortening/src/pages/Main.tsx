@@ -11,6 +11,7 @@ import Form from "../components/Form";
 
 import { ILink } from "../interfaces/ILink";
 import LinkResult from "../components/LinkResult";
+import { json } from "stream/consumers";
 
 type Props = {};
 
@@ -18,6 +19,7 @@ const Main = (props: Props) => {
   const [showError, setShowError] = useState<boolean>(false);
   const [isValid, setIsValid] = useState<boolean>(true);
   const [link, setLink] = useState<string>("");
+  const [linkObj, setLinkObj] = useState<ILink | undefined>();
   const [linksArr, setLinksArr] = useState<ILink[]>([]);
 
   async function shortenLink(e: FormEvent<HTMLFormElement>) {
@@ -37,10 +39,28 @@ const Main = (props: Props) => {
 
       if (linksArr.length === 3) linksArr.shift();
 
+      setLinkObj({ link: link, shortLink: linkResult, copyStatus: false });
+
       setLinksArr([
         ...linksArr,
         { link: link, shortLink: linkResult, copyStatus: false },
       ]);
+    } catch (err) {
+      console.log(err);
+    }
+
+    postData();
+  }
+
+  async function postData() {
+    try {
+       fetch("db.json", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(linkObj),
+      });
     } catch (err) {
       console.log(err);
     }
