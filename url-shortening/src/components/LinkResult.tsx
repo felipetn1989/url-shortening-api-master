@@ -1,19 +1,15 @@
 import React, { useState } from "react";
 
+import 
+
 import { ILink } from "../interfaces/ILink";
-import { set } from "lodash";
 
 type Props = {
   linksArr: ILink[];
 };
 
 const LinkResult = ({ linksArr }: Props) => {
-  const copied: boolean[] = [false, false, false]
-
-  function copyLink(text: any, index: number): void {
-    copied[index] = true
-    console.log(copied)
-  }
+  const [copied, setCopied] = useState<boolean>(false);
 
   return (
     <div className="space-y-[1.625rem] px-2 mt-[-3rem]">
@@ -32,16 +28,17 @@ const LinkResult = ({ linksArr }: Props) => {
           >
             {linkObject.shortLink}
           </a>
-          <div className="px-4">
+         <CopyToClipboard>
+
+         </CopyToClipboard>
             <button
               className={`${
-                copied[index] ? "bg-[#3b3054]" : "bg-[#2acfcf]"
+                copied ? "bg-[#3b3054]" : "bg-[#2acfcf]"
               } text-white w-full py-2 rounded-lg`}
-              onClick={() => copyLink(linkObject.shortLink, index)}
             >
-              {copied[index] ? "Copied!" : "Copy"}
+              {copied ? "Copied!" : "Copy"}
             </button>
-          </div>
+          
         </div>
       ))}
     </div>

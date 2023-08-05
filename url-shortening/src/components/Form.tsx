@@ -1,8 +1,6 @@
-import React, { ChangeEvent, FormEvent, useState } from "react";
+import React, { ChangeEvent, FormEvent } from "react";
 
 import styles from "./Form.module.css";
-
-import { ILink } from "../interfaces/ILink";
 
 type Props = {
   shortenLink(e: FormEvent<HTMLFormElement>): void;
@@ -24,7 +22,7 @@ const Form = ({ shortenLink, setLink, showError, isValid }: Props) => {
       >
         <label htmlFor="linkInput">
           <input
-            className={`w-[17.5rem] h-12 pl-4 rounded-lg ${
+            className={`w-full max-w-[17.5rem] h-12 pl-4 rounded-lg ${
               showError || !isValid
                 ? "placeholder:text-[#f46262] border border-[#f46262]"
                 : "placeholder:text-[#bfbfbf]"
@@ -47,7 +45,7 @@ const Form = ({ shortenLink, setLink, showError, isValid }: Props) => {
           </span>
         )}
         <input
-          className="bg-[#2acfcf] text-white font-bold w-[17.5rem] h-12 rounded-lg text-lg hover:cursor-pointer hover:opacity-50"
+          className="bg-[#2acfcf] text-white font-bold max-w-[17.5rem] h-12 rounded-lg text-lg hover:cursor-pointer hover:opacity-50"
           type="submit"
           value="Shorten It!"
         />
