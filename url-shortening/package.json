@@ -46,6 +46,7 @@
   },
   "devDependencies": {
     "@types/lodash": "^4.14.196",
+    "@types/react-copy-to-clipboard": "^5.0.4",
     "tailwindcss": "^3.3.3"
   }
 }

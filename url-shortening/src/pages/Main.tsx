@@ -40,7 +40,10 @@ const Main = (props: Props) => {
 
       if (linksArr.length === 3) linksArr.shift();
 
-      setLinksArr([...linksArr, { link: link, shortLink: linkResult }]);
+      setLinksArr([
+        ...linksArr,
+        { link: link, shortLink: linkResult, copyStatus: false },
+      ]);
     } catch (err) {
       console.log(err);
     }
@@ -76,7 +79,7 @@ const Main = (props: Props) => {
         />
       </div>
       <div className="bg-[#f0f1f6] translate-y-[-5rem] pt-[9.5625rem] grid gap-4 px-4 text-[#9e9aa7] pb-20">
-        <LinkResult linksArr={linksArr} />
+        <LinkResult linksArr={linksArr} setLinksArr={setLinksArr} />
         <h2 className="text-[1.6875rem] font-bold text-[#35323e]">
           Advanced Statistics
         </h2>
