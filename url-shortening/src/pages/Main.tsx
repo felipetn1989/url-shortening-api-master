@@ -18,7 +18,6 @@ const Main = (props: Props) => {
   const [showError, setShowError] = useState<boolean>(false);
   const [isValid, setIsValid] = useState<boolean>(true);
   const [link, setLink] = useState<string>("");
-  const [shortLink, setShortLink] = useState<string>("");
   const [linksArr, setLinksArr] = useState<ILink[]>([]);
 
   async function shortenLink(e: FormEvent<HTMLFormElement>) {
@@ -35,8 +34,6 @@ const Main = (props: Props) => {
       setIsValid(!!data.result);
 
       const linkResult = await data.result.full_short_link2;
-
-      setShortLink(linkResult);
 
       if (linksArr.length === 3) linksArr.shift();
 

@@ -10,8 +10,13 @@ type Props = {
 
 const LinkResult = ({ linksArr, setLinksArr }: Props) => {
   function copyLink(obj: ILink) {
-    obj.copyStatus = true;
-    setLinksArr([...linksArr, obj]);
+    setLinksArr(
+      linksArr.map((linkObject) =>
+        linkObject.link === obj.link
+          ? { ...linkObject, copyStatus: true }
+          : linkObject
+      )
+    );
   }
 
   return (
@@ -32,14 +37,18 @@ const LinkResult = ({ linksArr, setLinksArr }: Props) => {
             {linkObject.shortLink}
           </a>
           <div className="px-4">
-            <button
-              className={`${
-                linkObject.copyStatus ? "bg-[#3b3054]" : "bg-[#2acfcf]"
-              } text-white w-full py-2 rounded-lg`}
-              onClick={() => copyLink(linkObject)}
+            <CopyToClipboard
+              text={linkObject.shortLink}
+              onCopy={() => copyLink(linkObject)}
             >
-              {linkObject.copyStatus ? "Copied!" : "Copy"}
-            </button>
+              <button
+                className={`${
+                  linkObject.copyStatus ? "bg-[#3b3054]" : "bg-[#2acfcf]"
+                } text-white w-full py-2 rounded-lg`}
+              >
+                {linkObject.copyStatus ? "Copied!" : "Copy"}
+              </button>
+            </CopyToClipboard>
           </div>
         </div>
       ))}
