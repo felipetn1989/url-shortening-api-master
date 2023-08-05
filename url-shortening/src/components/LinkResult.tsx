@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 
-import 
-
 import { ILink } from "../interfaces/ILink";
 
 type Props = {
@@ -28,9 +26,7 @@ const LinkResult = ({ linksArr }: Props) => {
           >
             {linkObject.shortLink}
           </a>
-         <CopyToClipboard>
 
-         </CopyToClipboard>
             <button
               className={`${
                 copied ? "bg-[#3b3054]" : "bg-[#2acfcf]"
