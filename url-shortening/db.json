@@ -1,1 +1,16 @@
-[]
+{
+  "links": [
+    {
+      "link": "youtube.com",
+      "shortLink": "https://9qr.de/rLhFDy",
+      "copyStatus": false,
+      "id": 1
+    },
+    {
+      "link": "frontendmentor.io",
+      "shortLink": "https://9qr.de/zclNXG",
+      "copyStatus": false,
+      "id": 2
+    }
+  ]
+}

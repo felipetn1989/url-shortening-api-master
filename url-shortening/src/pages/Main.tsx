@@ -1,4 +1,4 @@
-import React, { useState, FormEvent } from "react";
+import React, { useState, FormEvent, useEffect } from "react";
 import styles from "./Main.module.css";
 
 import working from "../images/illustration-working.svg";
@@ -11,7 +11,6 @@ import Form from "../components/Form";
 
 import { ILink } from "../interfaces/ILink";
 import LinkResult from "../components/LinkResult";
-import { json } from "stream/consumers";
 
 type Props = {};
 
@@ -22,7 +21,7 @@ const Main = (props: Props) => {
   const [linkObj, setLinkObj] = useState<ILink | undefined>();
   const [linksArr, setLinksArr] = useState<ILink[]>([]);
 
-  async function shortenLink(e: FormEvent<HTMLFormElement>) {
+  async function getShortLink(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
     setShowError(!link);
@@ -39,12 +38,31 @@ const Main = (props: Props) => {
 
       if (linksArr.length === 3) linksArr.shift();
 
-      setLinkObj({ link: link, shortLink: linkResult, copyStatus: false });
+      const newLinkObj = {
+        link: link,
+        shortLink: linkResult,
+        copyStatus: false,
+      };
 
-      setLinksArr([
-        ...linksArr,
-        { link: link, shortLink: linkResult, copyStatus: false },
-      ]);
+      setLinkObj(newLinkObj);
+
+      setLinksArr([...linksArr, newLinkObj]);
+
+      try {
+        await fetch("http://localhost:5000/links", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            link: link,
+            shortLink: linkResult,
+            copyStatus: false,
+          }),
+        });
+      } catch (errBackend) {
+        console.log(errBackend);
+      }
     } catch (err) {
       console.log(err);
     }
@@ -73,14 +91,14 @@ const Main = (props: Props) => {
       </div>
       <div className="relative px-6 z-40">
         <Form
-          shortenLink={shortenLink}
+          shortenLink={getShortLink}
           setLink={setLink}
           showError={showError}
           isValid={isValid}
         />
       </div>
       <div className="bg-[#f0f1f6] translate-y-[-5rem] pt-[9.5625rem] grid gap-4 px-4 text-[#9e9aa7] pb-20">
-        <LinkResult linksArr={linksArr} setLinksArr={setLinksArr} />
+        <LinkResult />
         <h2 className="text-[1.6875rem] font-bold text-[#35323e]">
           Advanced Statistics
         </h2>

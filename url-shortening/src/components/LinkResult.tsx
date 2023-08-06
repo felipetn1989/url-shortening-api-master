@@ -1,14 +1,32 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 
 import { ILink } from "../interfaces/ILink";
 
-type Props = {
-  linksArr: ILink[];
-  setLinksArr: React.Dispatch<React.SetStateAction<ILink[]>>;
-};
+type Props = {};
 
-const LinkResult = ({ linksArr, setLinksArr }: Props) => {
+const LinkResult = (props: Props) => {
+  const [linksArr, setLinksArr] = useState<ILink[]>([]);
+
+  async function getData() {
+    try {
+      const resp = await fetch("http://localhost:5000/links", {
+        method: "GET",
+        headers: {
+          "Content-type": "application/json",
+        },
+      });
+      const data = await resp.json();
+      setLinksArr(data);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  useEffect(() => {
+    getData()
+  },[linksArr])
+
   function copyLink(obj: ILink) {
     setLinksArr(
       linksArr.map((linkObject) =>
