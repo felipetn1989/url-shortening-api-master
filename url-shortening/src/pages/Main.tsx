@@ -80,66 +80,72 @@ const Main = (props: Props) => {
           isValid={isValid}
         />
       </div>
-      <div className="bg-[#f0f1f6] translate-y-[-5rem] pt-[9.5625rem] grid gap-4 px-4 text-[#9e9aa7] pb-20">
+      <div className="bg-[#f0f1f6] translate-y-[-5rem] pt-[9.5625rem] grid gap-4 px-4 text-[#9e9aa7] pb-20 lg:translate-y-[-5.25rem] lg:pt-[11.6875rem] lg:gap-3.5 lg:pb-[12.5rem]">
         <LinkResult linksArr={linksArr} setLinksArr={setLinksArr} />
-        <h2 className="text-[1.6875rem] font-bold text-[#35323e]">
+        <h2 className="text-[1.6875rem] font-bold text-[#35323e] lg:text-[2.375rem]">
           Advanced Statistics
         </h2>
-        <p className="leading-[1.75rem]">
+        <p className="leading-[1.75rem] lg:text-lg lg:w-[33rem] lg:m-auto lg:leading-[1.9375rem]">
           Track how your links are performing across the web with our advanced
           statistics dashboard.
         </p>
-        <div className="mt-[4.625rem] px-2 grid gap-[5.5rem]">
-          <div className="relative bg-white px-7 pb-[2.375rem] rounded-lg">
+        <div className="mt-[4.625rem] px-2 grid gap-[5.5rem] lg:flex lg:px-[9.4375rem] lg:gap-x-[2rem] lg:text-left lg:mt-[5.25rem]">
+          <div className="relative bg-white px-7 pb-[2.375rem] rounded-lg lg:px-7">
             <img
-              className="m-auto bg-[#3b3054] p-6 w-[5.5rem] rounded-full translate-y-[-2.75rem] mb-[-0.75rem]"
+              className="m-auto bg-[#3b3054] p-6 w-[5.5rem] rounded-full translate-y-[-2.75rem] mb-[-0.75rem] lg:m-[unset]"
               src={brand}
               alt=""
             />
-            <h3 className="text-[1.3125rem] tracking-wide font-bold text-[#35323e]">
-              Brand Recognition
-            </h3>
-            <p className="text-[0.9375rem] mt-[1.125rem] leading-[1.625rem]">
-              Boost your brand recognition with each click. Generic links don’t
-              mean a thing. Branded links help instil confidence in your
-              content.
-            </p>
-            <div className="absolute bottom-[-4rem] left-[50%] translate-x-[-50%] w-2 h-16 bg-[#2acfcf]"></div>
+            <div className="mt-[-0.75rem]">
+              <h3 className="text-[1.3125rem] tracking-wide font-bold text-[#35323e]">
+                Brand Recognition
+              </h3>
+              <p className="text-[0.9375rem] mt-[1.125rem] leading-[1.625rem]">
+                Boost your brand recognition with each click. Generic links
+                don’t mean a thing. Branded links help instil confidence in your
+                content.
+              </p>
+            </div>
+            <div className="absolute bottom-[-4rem] left-[50%] translate-x-[-50%] w-2 h-16 bg-[#2acfcf] lg:w-16 lg:h-2 lg:bottom-[6.9375rem] lg:left-[unset] lg:right-[-6rem]"></div>
           </div>
-          <div className="relative bg-white px-7 pb-[1.9375rem] rounded-lg translate-y-1">
+          <div className="relative bg-white px-7 pb-[1.9375rem] rounded-lg translate-y-1 lg:px-7 lg:translate-y-11">
             <img
-              className="m-auto bg-[#3b3054] p-6 w-[5.5rem] rounded-full translate-y-[-2.75rem] mb-[-0.75rem]"
+              className="m-auto bg-[#3b3054] p-6 w-[5.5rem] rounded-full translate-y-[-2.75rem] mb-[-0.75rem] lg:m-[unset]"
               src={records}
               alt=""
             />
-            <h3 className="text-[1.3125rem] tracking-wide font-bold text-[#35323e]">
-              Detailed Records
-            </h3>
-            <p className="text-[0.9375rem] mt-[1.125rem] leading-[1.625rem]">
-              Gain insights into who is clicking your links. Knowing when and
-              where people engage with your content helps inform better
-              decisions.
-            </p>
-            <div className="absolute bottom-[-4rem] left-[50%] translate-x-[-50%] w-2 h-16 bg-[#2acfcf]"></div>
+            <div className="mt-[-0.75rem]">
+              <h3 className="text-[1.3125rem] tracking-wide font-bold text-[#35323e]">
+                Detailed Records
+              </h3>
+              <p className="text-[0.9375rem] mt-[1.125rem] leading-[1.625rem] lg:w-[97%]">
+                Gain insights into who is clicking your links. Knowing when and
+                where people engage with your content helps inform better
+                decisions.
+              </p>
+            </div>
+            <div className="absolute bottom-[-4rem] left-[50%] translate-x-[-50%] w-2 h-16 bg-[#2acfcf] lg:w-16 lg:h-2 lg:left-[unset] lg:right-[-6rem] lg:bottom-[9.75rem]"></div>
           </div>
-          <div className="bg-white px-7 pb-[2.375rem] rounded-lg mt-[0.4375rem]">
+          <div className="bg-white px-7 pb-[2.375rem] rounded-lg mt-[0.4375rem] lg:px-8 lg:translate-y-[5.25rem] lg:translate-x-[-0.5rem]">
             <img
-              className="m-auto bg-[#3b3054] p-6 w-[5.5rem] rounded-full translate-y-[-2.75rem] mb-[-0.75rem]"
+              className="m-auto bg-[#3b3054] p-6 w-[5.5rem] rounded-full translate-y-[-2.75rem] mb-[-0.75rem] lg:m-[unset]"
               src={custom}
               alt=""
             />
-            <h3 className="text-[1.3125rem] tracking-wide font-bold text-[#35323e]">
-              Fully Customizable
-            </h3>
-            <p className="text-[0.9375rem] mt-[1rem] leading-[1.625rem]">
-              Improve brand awareness and content discoverability through
-              customizable links, supercharging audience engagement.
-            </p>
+            <div className="mt-[-0.75rem]">
+              <h3 className="text-[1.3125rem] tracking-wide font-bold text-[#35323e]">
+                Fully Customizable
+              </h3>
+              <p className="text-[0.9375rem] mt-[1rem] leading-[1.625rem]">
+                Improve brand awareness and content discoverability through
+                customizable links, supercharging audience engagement.
+              </p>
+            </div>
           </div>
         </div>
       </div>
-      <div className={`mt-[-5rem] pt-24 pb-[5.5625rem] ${styles["boost"]}`}>
-        <h2 className="text-white font-bold text-[1.675rem]">
+      <div className={`mt-[-5rem] pt-24 pb-[5.5625rem] ${styles["boost"]} lg:pt-14 lg:pb-14`}>
+        <h2 className="text-white font-bold text-[1.675rem] lg:text-[2.375rem] lg:mb-[-0.5rem]">
           Boost your links today
         </h2>
         <StartButton />

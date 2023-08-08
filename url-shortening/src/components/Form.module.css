@@ -2,5 +2,11 @@ form {
   background-color: #3b3054;
   background-image: url("../images/bg-shorten-mobile.svg");
   background-repeat: no-repeat;
-  background-position-x: 5.5rem ;
+  background-position-x: 100%;
+}
+
+@media screen and (min-width: 1024px) {
+  form {
+    background-image: url("../images/bg-shorten-desktop.svg");
+  }
 }

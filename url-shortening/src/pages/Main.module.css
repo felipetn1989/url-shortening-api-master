@@ -1,5 +1,13 @@
 .boost {
-    background-color: #3b3054;
-    background-image: url('../images/bg-boost-mobile.svg');
-    background-repeat: no-repeat; 
+  background-color: #3b3054;
+  background-image: url("../images/bg-boost-mobile.svg");
+  background-repeat: no-repeat;
+  background-position-x: 100%;
+
+}
+
+@media screen and (min-width: 1024px) {
+  .boost {
+    background-image: url("../images/bg-boost-desktop.svg");
+  }
 }
