@@ -33,7 +33,7 @@ const Main = (props: Props) => {
 
       setIsValid(!!data.result);
 
-      const linkResult = await data.result.full_short_link2;
+      const linkResult = await data.result.full_short_link;
 
       if (linksArr.length === 3) linksArr.shift();
 
@@ -44,6 +44,8 @@ const Main = (props: Props) => {
       };
 
       setLinksArr([...linksArr, newLinkObj]);
+
+      console.log(newLinkObj);
     } catch (err) {
       console.log(err);
     }
@@ -51,19 +53,19 @@ const Main = (props: Props) => {
 
   return (
     <main className={`text-center overflow-hidden`}>
-      <div className="px-4 text-[#35323e]">
+      <div className="px-4 text-[#35323e] lg:flex lg:flex-row-reverse lg:px-0 lg:py-[3.625rem]">
         <div className="min-w-[31rem]">
           <img
-            className="translate-x-2 translate-y-[-0.125rem]"
+            className="translate-x-2 translate-y-[-0.125rem] lg:absolute lg:translate-x-[-7rem] lg:translate-y-[-2.25rem]"
             src={working}
             alt="Drawing of a person working on a computer on a desk"
           />
         </div>
-        <div className="mt-9 grid gap-3.5">
-          <h1 className="text-[2.5rem] font-bold leading-[3rem]">
+        <div className="mt-9 grid gap-3.5 lg:pl-[10.5rem] lg:text-left lg:gap-2">
+          <h1 className="text-[2.5rem] font-bold leading-[3rem] lg:text-[5rem] lg:leading-[5.3125rem] lg:tracking-tight">
             More than just shorter links
           </h1>
-          <p className="text-[#bfbfbf] text-lg">
+          <p className="text-[#bfbfbf] text-lg lg:text-[1.3125rem] lg:pr-56 lg:leading-[2.0625rem] lg:tracking-wide">
             Build your brand’s recognition and get detailed insights on how your
             links are performing.
           </p>

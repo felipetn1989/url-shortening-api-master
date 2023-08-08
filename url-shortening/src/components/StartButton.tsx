@@ -4,7 +4,7 @@ type Props = {};
 
 const StartButton = (props: Props) => {
   return (
-    <button className="text-white bg-[#2acfcf] w-[12.25rem] m-auto mt-5 font-bold text-xl py-3.5 rounded-full hover:opacity-50">
+    <button className="text-white bg-[#2acfcf] w-[12.25rem] m-auto mt-5 font-bold text-xl py-3.5 rounded-full hover:opacity-50 lg:m-[unset] lg:mt-8">
       Get Started
     </button>
   );
