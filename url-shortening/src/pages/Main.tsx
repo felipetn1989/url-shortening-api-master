@@ -18,7 +18,6 @@ const Main = (props: Props) => {
   const [showError, setShowError] = useState<boolean>(false);
   const [isValid, setIsValid] = useState<boolean>(true);
   const [link, setLink] = useState<string>("");
-  const [linkObj, setLinkObj] = useState<ILink | undefined>();
   const [linksArr, setLinksArr] = useState<ILink[]>([]);
 
   async function getShortLink(e: FormEvent<HTMLFormElement>) {
@@ -44,25 +43,7 @@ const Main = (props: Props) => {
         copyStatus: false,
       };
 
-      setLinkObj(newLinkObj);
-
       setLinksArr([...linksArr, newLinkObj]);
-
-      try {
-        await fetch("http://localhost:5000/links", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            link: link,
-            shortLink: linkResult,
-            copyStatus: false,
-          }),
-        });
-      } catch (errBackend) {
-        console.log(errBackend);
-      }
     } catch (err) {
       console.log(err);
     }
@@ -98,7 +79,7 @@ const Main = (props: Props) => {
         />
       </div>
       <div className="bg-[#f0f1f6] translate-y-[-5rem] pt-[9.5625rem] grid gap-4 px-4 text-[#9e9aa7] pb-20">
-        <LinkResult />
+        <LinkResult linksArr={linksArr} setLinksArr={setLinksArr} />
         <h2 className="text-[1.6875rem] font-bold text-[#35323e]">
           Advanced Statistics
         </h2>
