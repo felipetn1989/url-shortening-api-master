@@ -25,9 +25,9 @@ const Header = (props: Props) => {
         <div className="flex gap-11">
           <img src={logo} alt="Shortly logo" />
           <ul className="hidden gap-8 text-[#9e9aa7] font-bold tracking-tighter lg:flex">
-            <li className="hover:cursor-pointer">Features</li>
-            <li className="hover:cursor-pointer">Pricing</li>
-            <li className="hover:cursor-pointer">Resources</li>
+            <li className="hover:cursor-pointer hover:text-black">Features</li>
+            <li className="hover:cursor-pointer hover:text-black">Pricing</li>
+            <li className="hover:cursor-pointer hover:text-black">Resources</li>
           </ul>
         </div>
         <button className="lg:hidden">
@@ -35,8 +35,8 @@ const Header = (props: Props) => {
         </button>
         <div className="hidden translate-y-[-0.3125rem] lg:block">
           <ul className="flex items-center gap-9 font-bold text-[#9e9aa7]">
-            <li className="hover:cursor-pointer">Login</li>
-            <li className="bg-[#2acfcf] text-white px-5 py-2 rounded-full">Sign Up</li>
+            <li className="hover:cursor-pointer hover:text-black">Login</li>
+            <li className="bg-[#2acfcf] text-white px-5 py-2 rounded-full hover:cursor-pointer hover:opacity-30">Sign Up</li>
           </ul>
         </div>
       </div>

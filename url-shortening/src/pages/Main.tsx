@@ -44,24 +44,22 @@ const Main = (props: Props) => {
       };
 
       setLinksArr([...linksArr, newLinkObj]);
-
-      console.log(newLinkObj);
     } catch (err) {
       console.log(err);
     }
   }
 
   return (
-    <main className={`text-center overflow-hidden`}>
-      <div className="px-4 text-[#35323e] lg:flex lg:flex-row-reverse lg:px-0 lg:py-[3.625rem]">
+    <main className={`text-center overflow-hidden lg:mt-[2.3125rem]`}>
+      <div className="px-4 text-[#35323e] xl:flex xl:flex-row-reverse lg:px-0 lg:py-[3.625rem]">
         <div className="min-w-[31rem]">
           <img
-            className="translate-x-2 translate-y-[-0.125rem] lg:absolute lg:translate-x-[-7rem] lg:translate-y-[-2.25rem]"
+            className="translate-x-2 translate-y-[-0.125rem] m-auto xl:absolute xl:translate-x-[-7rem] xl:translate-y-[-4.5rem]"
             src={working}
             alt="Drawing of a person working on a computer on a desk"
           />
         </div>
-        <div className="mt-9 grid gap-3.5 lg:pl-[10.5rem] lg:text-left lg:gap-2">
+        <div className="mt-9 grid gap-3.5 lg:pl-[10.5rem] lg:text-left lg:gap-2 lg:m-auto">
           <h1 className="text-[2.5rem] font-bold leading-[3rem] lg:text-[5rem] lg:leading-[5.3125rem] lg:tracking-tight">
             More than just shorter links
           </h1>
@@ -89,7 +87,7 @@ const Main = (props: Props) => {
           Track how your links are performing across the web with our advanced
           statistics dashboard.
         </p>
-        <div className="mt-[4.625rem] px-2 grid gap-[5.5rem] lg:flex lg:px-[9.4375rem] lg:gap-x-[2rem] lg:text-left lg:mt-[5.25rem]">
+        <div className="mt-[4.625rem] px-2 grid gap-[5.5rem] lg:flex lg:px-[9.4375rem] lg:gap-x-[2rem] lg:text-left lg:mt-[5.25rem] lg:max-w-[90rem] lg:m-auto">
           <div className="relative bg-white px-7 pb-[2.375rem] rounded-lg lg:px-7">
             <img
               className="m-auto bg-[#3b3054] p-6 w-[5.5rem] rounded-full translate-y-[-2.75rem] mb-[-0.75rem] lg:m-[unset]"
@@ -144,7 +142,9 @@ const Main = (props: Props) => {
           </div>
         </div>
       </div>
-      <div className={`mt-[-5rem] pt-24 pb-[5.5625rem] ${styles["boost"]} lg:pt-14 lg:pb-14`}>
+      <div
+        className={`mt-[-5rem] pt-24 pb-[5.5625rem] ${styles["boost"]} lg:pt-14 lg:pb-14`}
+      >
         <h2 className="text-white font-bold text-[1.675rem] lg:text-[2.375rem] lg:mb-[-0.5rem]">
           Boost your links today
         </h2>

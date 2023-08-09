@@ -15,7 +15,7 @@ const Form = ({ shortenLink, setLink, showError, isValid }: Props) => {
   }
 
   return (
-    <div className="lg:w-[79.6%] lg:m-auto">
+    <div className="lg:w-[79.6%] lg:m-auto lg:max-w-[70rem]">
       <form
         className={`${styles.form} mt-[5.5rem] p-6 grid place-content-center gap-4 rounded-lg lg:flex lg:py-[3.25rem] lg:mt-[5rem] lg:px-16 lg:gap-6`}
         onSubmit={shortenLink}
@@ -36,7 +36,7 @@ const Form = ({ shortenLink, setLink, showError, isValid }: Props) => {
             />
           </label>
           {showError && (
-            <span className="text-left text-[#f46262] text-[0.75rem]">
+            <span className="text-left text-[#f46262] text-[0.75rem] mt-1 lg:mb-[-1.75rem] lg:text-base lg:translate-y-0.5">
               Please add a link
             </span>
           )}
