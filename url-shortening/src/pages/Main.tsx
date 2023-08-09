@@ -1,4 +1,4 @@
-import React, { useState, FormEvent, useEffect } from "react";
+import React, { useState, FormEvent } from "react";
 import styles from "./Main.module.css";
 
 import working from "../images/illustration-working.svg";
