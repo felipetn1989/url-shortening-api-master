@@ -51,15 +51,15 @@ const Main = (props: Props) => {
 
   return (
     <main className={`text-center overflow-hidden lg:mt-[2.3125rem]`}>
-      <div className="px-4 text-[#35323e] xl:flex xl:flex-row-reverse lg:px-0 lg:py-[3.625rem]">
+      <div className="px-4 text-[#35323e] xl:flex xl:flex-row-reverse lg:px-0 lg:py-[3.625rem] xl:relative xl:max-w-[95rem] xl:m-auto">
         <div className="min-w-[31rem]">
           <img
-            className="translate-x-2 translate-y-[-0.125rem] m-auto xl:absolute xl:translate-x-[-7rem] xl:translate-y-[-4.5rem]"
+            className="translate-x-2 translate-y-[-0.125rem] m-auto xl:absolute xl:right-[-7rem] xl:translate-y-[-4.5rem]"
             src={working}
             alt="Drawing of a person working on a computer on a desk"
           />
         </div>
-        <div className="mt-9 grid gap-3.5 lg:pl-[10.5rem] lg:text-left lg:gap-2 lg:m-auto">
+        <div className="mt-9 grid gap-3.5 lg:pl-[8rem] lg:pr-12 lg:text-left lg:gap-2 lg:m-auto xl:pr-[unset] xl:pl-[10.5rem]">
           <h1 className="text-[2.5rem] font-bold leading-[3rem] lg:text-[5rem] lg:leading-[5.3125rem] lg:tracking-tight">
             More than just shorter links
           </h1>

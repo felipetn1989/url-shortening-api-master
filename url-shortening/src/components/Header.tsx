@@ -21,7 +21,7 @@ const Header = (props: Props) => {
 
   return (
     <header className="px-6 py-10 lg:px-[10.5rem] lg:py-[3.25rem]">
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center lg:max-w-[90rem] lg:m-auto">
         <div className="flex gap-11">
           <img src={logo} alt="Shortly logo" />
           <ul className="hidden gap-8 text-[#9e9aa7] font-bold tracking-tighter lg:flex">
