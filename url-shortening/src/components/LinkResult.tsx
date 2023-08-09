@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 
 import { ILink } from "../interfaces/ILink";
@@ -21,7 +21,9 @@ const LinkResult = ({ linksArr, setLinksArr }: Props) => {
 
   return (
     <div
-      className={`space-y-[1.625rem] px-2 mt-[-3rem] lg:space-y-3 lg:mt-[-5rem] ${linksArr.length && "lg:mb-[6.5rem]"}`}
+      className={`space-y-[1.625rem] px-2 mt-[-3rem] lg:space-y-3 lg:mt-[-5rem] ${
+        linksArr.length && "lg:mb-[6.5rem]"
+      }`}
     >
       {linksArr?.map((linkObject, index) => (
         <div
@@ -36,6 +38,7 @@ const LinkResult = ({ linksArr, setLinksArr }: Props) => {
               className="px-4 py-3 text-[#2acfcf] lg:text-xl"
               href={`${linkObject.shortLink}`}
               target="_blank"
+              rel="noreferrer"
             >
               {linkObject.shortLink}
             </a>
