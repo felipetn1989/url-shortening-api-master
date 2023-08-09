@@ -28,7 +28,7 @@ const LinkResult = ({ linksArr, setLinksArr }: Props) => {
       {linksArr?.map((linkObject, index) => (
         <div
           key={index}
-          className="grid text-left bg-white pt-3 pb-4 rounded-lg lg:flex lg:items-center lg:justify-between lg:w-[80%] lg:m-auto lg:px-4 lg:py-3"
+          className="grid text-left bg-white pt-3 pb-4 rounded-lg lg:flex lg:items-center lg:justify-between lg:w-[80%] lg:m-auto lg:max-w-[70rem] lg:px-4 lg:py-3"
         >
           <h2 className="text-[#35323e] border-b px-4 pb-3 lg:border-none lg:text-xl lg:pb-[unset]">
             {linkObject?.link}
